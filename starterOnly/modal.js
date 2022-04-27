@@ -14,6 +14,7 @@ const formData = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelectorAll('.close');
 
 // Form element const
+const form = document.getElementById("form");
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const eMail = document.getElementById('email');
@@ -35,6 +36,7 @@ function launchModal() {
 }
 
 // close modal form
+
 closeModalBtn.forEach(close => close.addEventListener("click", closeModal));
 
 
