@@ -1,7 +1,7 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive";
+    x.className += "responsive";
   } else {
     x.className = "topnav";
   }
@@ -11,7 +11,8 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModalBtn = document.querySelectorAll('.close');
+const closeModalBtn = document.querySelector('.close');
+const submitBtn = document.querySelector(".btn-submit");
 
 // Form element const
 const form = document.getElementById("form");
@@ -19,6 +20,7 @@ const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const eMail = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
+const quantityTournament = document.getElementById("quantity");
 const loc1 = document.getElementById('location1');
 const loc2 = document.getElementById('location2');
 const loc3 = document.getElementById ('location3');
@@ -26,7 +28,8 @@ const loc4 = document.getElementById ('location4');
 const loc5 = document.getElementById ('location5');
 const loc6 = document.getElementById ('location6');
 
-
+const numbers = /^[0-9]+$/;
+const data = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -37,16 +40,47 @@ function launchModal() {
 
 // close modal form
 
-closeModalBtn.forEach(close => close.addEventListener("click", closeModal));
-
-
 function closeModal(){
   modalbg.style.display = 'none';
 }
 
+closeModalBtn.addEventListener("click", closeModal);
+
+// Submit SHUT UP !!!!!!!!!
+
+form.addEventListener('submit' , (e) => {
+  e.preventDefault();
+})
+
 // Input firstName
+
 function validate(){
-  if (firstName === '' && firstName.lenght > 1 ) {
+  if ( firstName.value === '' && firstName.value.length < 2) {
+    alert ("Veuillez spécifier votre Prénom");
+    return false;
+  } 
+  else if (lastName.value === '' && lastName.value.length < 2) {
+    alert("Veuillez spécifier votre Nom");
+    return false;
+  }
+  else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(eMail.value)) {
+    alert ("Veuillez spécifier votre email");
+    return false;
+  }
+  // else if (!(birthDate.value.match(data))) {
+  //   alert("Veuillez spécifier votre âge");
+  //   return false;
+  // }
+  else if (!(quantityTournament.value.match(numbers))) {
+    alert("Veuillez spécifier le nombre de tournois");
+    return false;
+  }
+  else if (!loc1.checked && !loc2.checked && !loc3.checked && !loc4.checked && !loc5.checked && !loc6.checked) {
+    alert("Veuillez spécifier un tournois");
     return false;
   }
 }
+
+// validate submit 
+
+// submitBtn.addEventListener('submit', validate);
