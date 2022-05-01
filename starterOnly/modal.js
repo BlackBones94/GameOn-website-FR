@@ -30,6 +30,16 @@ const loc6 = document.getElementById ('location6');
 
 const numbers = /^[0-9]+$/;
 const data = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+
+const errorMessage ={
+  firstError : "Veuillez entrer 2 caractères ou plus pour le champ du Prénom.",
+  lastError : "Veuillez entrer 2 caractères ou plus pour le champ du Nom.",
+  emailError : "Veuillez entrer une adresse mail Valide",
+  dateError : "Vous devez entrer votre date de naissance.",
+  tournamentError : "Veuillez indiquer un nombre de tournois",
+  locationError : "Veuillez choisir une ville",
+  checkboxError : "Vous devez vérifier que vous acceptez les termes et conditions.",
+};
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -67,9 +77,10 @@ function validate(){
     alert ("Veuillez spécifier votre email");
     return false;
   }
-  // else if (!(birthDate.value.match(data))) {
+  // else if (birthDate.value ) {
+  //   const data = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
   //   alert("Veuillez spécifier votre âge");
-  //   return false;
+  //   return data.match(birthDate.value);
   // }
   else if (!(quantityTournament.value.match(numbers))) {
     alert("Veuillez spécifier le nombre de tournois");
