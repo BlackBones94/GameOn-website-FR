@@ -72,9 +72,8 @@ lastName.addEventListener('keyup' , validateLastName);
 email.addEventListener('keyup' , validateEmail);
 birthDate.addEventListener('change', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
-// checkBox.addEventListener('onClick', validateCheckbox);
-
-
+checkBox.addEventListener('submit', validateCheckbox);
+form.addEventListener('submit', validateCheckbox);
 
 function validateFirstName() {
   if (firstName.value.length >= 2) {
@@ -119,10 +118,13 @@ function validateTournament() {
   }
 }
 
+
+
 function validateCheckbox(){
-  if(checkBox.value === checked){
-    return checkBox.setCustomValidity(errorMessage.checkboxError);
+  if(checkBox.checked){
+    return checkBox.setCustomValidity('');
   }else{
+    this.checkBox.focus();
     return checkBox.setCustomValidity(errorMessage.checkboxError);
   }
 }
@@ -133,7 +135,6 @@ function validateCheckbox(){
 // Submit SHUT UP !!!!!!!!!
 form.addEventListener('submit' , (e) => {
   e.preventDefault();
-  console.log('pass')
 })
 
 // firstName.addEventListener("invalid", (e) => {
