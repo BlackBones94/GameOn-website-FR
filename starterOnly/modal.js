@@ -124,7 +124,6 @@ function validateCheckbox(){
   if(checkBox.checked){
     return checkBox.setCustomValidity('');
   }else{
-    this.checkBox.focus();
     return checkBox.setCustomValidity(errorMessage.checkboxError);
   }
 }
