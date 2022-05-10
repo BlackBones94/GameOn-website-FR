@@ -119,14 +119,14 @@ function validateTournament() {
 }
 
 
-
 function validateCheckbox(){
   if(checkBox.checked){
     return checkBox.setCustomValidity('');
-  }else{
-    return checkBox.setCustomValidity(errorMessage.checkboxError);
   }
 }
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 

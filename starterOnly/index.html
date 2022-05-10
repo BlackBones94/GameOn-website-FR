@@ -111,7 +111,7 @@
 						</div>
 
 						<div class="formData">
-							<input type="checkbox" id="checkbox1" name="checkbox1" required />
+							<input type="checkbox" id="checkbox1" name="checkbox1" required oninvalid="this.setCustomValidity('Vous devez vérifier que vous acceptez les termes et conditions.')" onchange="this.setCustomValidity('')"/>
 							<label class="checkbox2-label" for="checkbox1">
 								<span class="checkbox-icon"></span>
 								J'ai lu et accepté les conditions d'utilisation.
