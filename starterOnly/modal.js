@@ -27,6 +27,10 @@ const email = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
+const radioContainer = document.getElementById('radio');
+
+
+
 // const loc1 = document.getElementById('location1');
 // const loc2 = document.getElementById('location2');
 // const loc3 = document.getElementById ('location3');
@@ -70,10 +74,15 @@ closeModalBtn.addEventListener("click", closeModal);
 firstName.addEventListener('keyup' , validateFirstName);
 lastName.addEventListener('keyup' , validateLastName);
 email.addEventListener('keyup' , validateEmail);
-birthDate.addEventListener('change', validateBirthdate);
+birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
 form.addEventListener('submit', validateCheckbox);
+// locBox.addEventListener('submit' , validateLoc);
+radioContainer.addEventListener('submit', validateLoc);
+
+
+
 
 function validateFirstName() {
   if (firstName.value.length >= 2) {
@@ -101,32 +110,39 @@ function validateEmail() {
 
 function validateBirthdate(){
   if(birthDate.value === null || birthDate.value === ""){
-    return birthDate.setCustomValidity(errorMessage.dateError);
+    birthDate.setCustomValidity(errorMessage.dateError);
   }if (birthDate.value.length != 10) {
-    return birthDate.setCustomValidity(errorMessage.dateError);
+    birthDate.setCustomValidity(errorMessage.dateError);
   }else{
-    return birthDate.setCustomValidity('');
+    birthDate.setCustomValidity('');
   }
 }
 
 
 function validateTournament() {
   if(quantityTournament.value === ''){
-    return quantityTournament.setCustomValidity(errorMessage.tournamentError);
+    quantityTournament.setCustomValidity(errorMessage.tournamentError);
   }else{
-    return quantityTournament.setCustomValidity('');
+    quantityTournament.setCustomValidity('');
   }
 }
 
 
 function validateCheckbox(){
   if(checkBox.checked){
-    return checkBox.setCustomValidity('');
+    checkBox.setCustomValidity('');
   }
 }
 
+// Loc validation
 
-
+function validateLoc(){
+  if(radioContainer.length === 0){
+    radioContainer.setCustomValidity('');
+  }else{
+    radioContainer.setCustomValidity(errorMessage.locationError);
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
