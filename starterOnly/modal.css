@@ -359,7 +359,42 @@ input[data-error]::after {
 
 
 
-/* ESSAIE POUR CHECKBOX INPUT ///////////////////////////////////////////////////// */
+/* /* ESSAIE POUR CHECKBOX INPUT /////////////////////////////////////////////////////  */
+
+
+
+/* essaie thanks modal  */
+
+ .thanks {
+  position: relative;
+  margin: 0;
+}
+.thanks-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
+.thanks-message p {
+  width: 309px;
+  font-weight: 400;
+  font-size: 36px;
+  text-align: center;
+  margin: 15% 0 20% 0;
+}
+.closeThanks {
+  position: absolute;
+  bottom: 20px;
+}
+
+.close-thanks-btn{
+position: relative;
+bottom: 50px;
+border: 0px solid #f00;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////// */
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: #279e7a;
 }

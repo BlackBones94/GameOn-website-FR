@@ -18,6 +18,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelector('.close');
 const submitBtn = document.querySelector(".btn-submit");
+const radioSelector = document.querySelectorAll('input[type="radio"]')
 
 // Form element const
 const form = document.getElementById("form");
@@ -28,15 +29,9 @@ const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
 const radioContainer = document.getElementById('radio');
-
-
-
-// const loc1 = document.getElementById('location1');
-// const loc2 = document.getElementById('location2');
-// const loc3 = document.getElementById ('location3');
-// const loc4 = document.getElementById ('location4');
-// const loc5 = document.getElementById ('location5');
-// const loc6 = document.getElementById ('location6');
+const locBox = document.getElementById('location');
+const modalThanks = document.getElementById("thanks"); 
+const closeModalThanksBtn = document.querySelector(".close-thanks-btn");
 
 const numbers = /^[0-9]+$/;
 const data =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
@@ -56,7 +51,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-
+  modalThanks.style.display= 'none';
 }
 
 // close modal form
@@ -67,8 +62,13 @@ function closeModal(){
 
 closeModalBtn.addEventListener("click", closeModal);
 
+//  close modal thanks 
 
 
+function closeModalThanks() {
+  modalThanks.style.display = "none"; 
+}
+closeModalThanksBtn.addEventListener("click", closeModal);
 
 // TODO : Refactor ///////////////////////////////////////////////////////////////
 firstName.addEventListener('keyup' , validateFirstName);
@@ -77,16 +77,16 @@ email.addEventListener('keyup' , validateEmail);
 birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
-form.addEventListener('submit', validateCheckbox);
-// locBox.addEventListener('submit' , validateLoc);
-radioContainer.addEventListener('submit', validateLoc);
+
+// locBox.addEventListener('submit' , validateLoc2);
+// radioContainer.addEventListener('submit', validateLoc);
 
 
 
 
 function validateFirstName() {
   if (firstName.value.length >= 2) {
-    firstName.setCustomValidity('');
+    return true;
   } else {
     firstName.setCustomValidity(errorMessage.firstNameError);
   }
@@ -94,7 +94,7 @@ function validateFirstName() {
 
 function validateLastName() {
   if (lastName.value.length >= 2) {
-    lastName.setCustomValidity('');
+    return true;
   } else {
     lastName.setCustomValidity(errorMessage.lastNameError);
   }
@@ -102,7 +102,7 @@ function validateLastName() {
 
 function validateEmail() {
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
-    email.setCustomValidity('');
+    return true;
   } else {
     email.setCustomValidity(errorMessage.emailError);
   }
@@ -114,7 +114,7 @@ function validateBirthdate(){
   }if (birthDate.value.length != 10) {
     birthDate.setCustomValidity(errorMessage.dateError);
   }else{
-    birthDate.setCustomValidity('');
+    return true;
   }
 }
 
@@ -123,68 +123,54 @@ function validateTournament() {
   if(quantityTournament.value === ''){
     quantityTournament.setCustomValidity(errorMessage.tournamentError);
   }else{
-    quantityTournament.setCustomValidity('');
+    return true;
   }
 }
 
 
 function validateCheckbox(){
   if(checkBox.checked){
-    checkBox.setCustomValidity('');
+    return true ;
   }
 }
 
 // Loc validation
 
-function validateLoc(){
-  if(radioContainer.length === 0){
-    radioContainer.setCustomValidity('');
+// function validateLoc(){
+//   if(radioContainer.checked){
+//     radioContainer.setCustomValidity('');
+//   }else{
+//     radioContainer.setCustomValidity(errorMessage.locationError);
+//   }
+// }
+
+
+// FUNCTION VALIDATION
+form.addEventListener('submit', validate);
+
+function validate(e){
+  e.preventDefault();
+
+  if(firstName.value && lastName.value && email.value && birthDate.value && checkBox.checked === true){
+    modalbg.style.display = "block";
+    modalThanks.style.display= 'block';
+    return true;
   }else{
-    radioContainer.setCustomValidity(errorMessage.locationError);
+    return false;
   }
 }
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // Submit SHUT UP !!!!!!!!!
-form.addEventListener('submit' , (e) => {
-  e.preventDefault();
-})
+// form.addEventListener('submit' , (e) => {
+//   e.preventDefault();
+  // validForm(this);
+// })
 
-// firstName.addEventListener("invalid", (e) => {
-  
-//   console.log(e)
-// });
-
-
-// function validate(){
-  // if ( firstName.value ===  '' && firstName.value.length < 2
-//     alert ("Veuillez spécifier votre Prénom";
-//     return  false;
-//   }
-//   }else if (lastName.value === '' && lastName.value.length < 2) {
-//     alert("Veuillez spécifier votre Nom");
-//     return false;
-//   }
-//   else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
-//     alert ("Veuillez spécifier votre email");
-//     return false;
-//   }
-//   // else if (birthDate.value ) {
-//   //   const data = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
-//   //   alert("Veuillez spécifier votre âge");
-//   //   return data.match(birthDate.value);
-//   // }
-//   else if (!(quantityTournament.value.match(numbers))) {
-//     alert("Veuillez spécifier le nombre de tournois");
-//     return false;
-//   }
-//   else if (!loc1.checked && !loc2.checked && !loc3.checked && !loc4.checked && !loc5.checked && !loc6.checked) {
-//     alert("Veuillez spécifier un tournois");
-//     return false;
-//   }
-// }
 
 // validate submit
 

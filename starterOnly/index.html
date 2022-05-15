@@ -58,35 +58,35 @@
 					<form id="form" action="index.html" method="POST" >
 						<div class="formData">
 							<label for="first">Prénom</label><br>
-							<input class="text-control" type="text" id="first" name="first"    minlength="2"/>
+							<input class="text-control" type="text" id="first" name="first" required  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du Prénom.')" onchange="this.setCustomValidity('')" minlength="2"/> 
 							<br>
 						</div>
 						<div class="formData">
 							<label for="last">Nom</label><br>
-							<input class="text-control" type="text" id="last" name="last"  />
+							<input class="text-control" type="text" id="last" name="last" required  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du Nom.')" onchange="this.setCustomValidity('')" minlength="2"/>
 							<br>
 						</div>
 						<div class="formData">
 							<label for="email">E-mail</label><br>
-							<input class="text-control" type="email" id="email" name="email"  />
+							<input class="text-control" type="email" id="email" name="email" required oninvalid="this.setCustomValidity('Veuillez entrer une adresse mail Valide.')" onchange="this.setCustomValidity('')" />
 							<br>
 						</div>
 						<div class="formData">
 							<label for="birthdate">Date de naissance</label><br>
-							<input class="text-control" type="date" id="birthdate" name="birthdate"  pattern="\d{2}-\d{2}-\d{4}" /><br>
+							<input class="text-control" type="date" id="birthdate" name="birthdate"  pattern="\d{2}-\d{2}-\d{4}" required oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')" onchange="this.setCustomValidity('')"/><br>
 						</div>
 						<div class="formData">
 							<label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-							<input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" >
+							<input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required oninvalid="this.setCustomValidity('Veuillez indiquer un nombre de tournois.')" onchange="this.setCustomValidity('')" >
 						</div>
 						<p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-						<div class="formData" id="radio" >
-							<input type="radio" id="location1" name="location" required
+						<div class="formData" id="radio"  >
+							<input type="radio" id="location1" name="location"  checked
 								value="New York"/>
-							<label class="checkbox-label" for="location1">
+							<label class="checkbox-label" for="location1"> 
 								<span class="checkbox-icon"></span>
 								New York</label>
-							<input type="radio" id="location2" name="location"
+							<input type="radio" id="location2" name="location" 
 								value="San Francisco" />
 							<label class="checkbox-label" for="location2">
 								<span class="checkbox-icon"></span>
@@ -126,6 +126,12 @@
 						</div>
 						<input class="btn-submit" type="submit" id="btn-submit" class="button" value="C'est parti" />
 					</form>
+					<div class="thanks modal-thanks" id="thanks">
+						<div class="thanks-message">
+						  <p>Merci pour votre enregistrement</p>
+						  <button class="button close-thanks-btn">Fermer</button>
+						</div>
+					  </div>
 				</div>
 			</div>
 		</div>
