@@ -81,7 +81,7 @@ checkBox.addEventListener('submit', validateCheckbox);
 // locBox.addEventListener('submit' , validateLoc2);
 // radioContainer.addEventListener('submit', validateLoc);
 
-
+// essaie merge
 
 
 function validateFirstName() {
