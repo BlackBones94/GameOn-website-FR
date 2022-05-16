@@ -28,7 +28,7 @@ const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
 const radioContainer = document.getElementById('radio');
-// const locBox = document.getElementById('location');
+// const locBox = document.getElementById('location1');
 const modalThanks = document.getElementById("thanks"); 
 const closeModalThanksBtn = document.querySelector(".close-thanks-btn");
 
@@ -76,10 +76,7 @@ email.addEventListener('keyup' , validateEmail);
 birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
-// locBox.addEventListener('submit' , validateLoc2);
-// radioContainer.addEventListener('submit', validateLoc);
-
-// essaie merge
+// radioContainer.addEventListener('submit', );
 
 
 function validateFirstName() {
@@ -135,7 +132,7 @@ function validateCheckbox(){
 // Loc validation
 
 
-(function() {
+(function isValidLocation() {
   const btnRadio = form.querySelectorAll('input[type=radio]');
   const radioLength = btnRadio.length;
   const firstRadio = radioLength > 0 ? btnRadio[0] : null;
@@ -173,7 +170,7 @@ form.addEventListener('submit', validate);
 function validate(e){
   e.preventDefault();
 
-  if(firstName.value && lastName.value && email.value && birthDate.value && checkBox.checked && btnRadio.length === true){
+  if(firstName.value && lastName.value && email.value && birthDate.value && checkBox.checked  === true){
     modalbg.style.display = "block";
     modalThanks.style.display= 'block';
     return true;
