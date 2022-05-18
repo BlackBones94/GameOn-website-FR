@@ -28,9 +28,14 @@ const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
 const radioContainer = document.getElementById('radio');
-// const locBox = document.getElementById('location1');
 const modalThanks = document.getElementById("thanks"); 
 const closeModalThanksBtn = document.querySelector(".close-thanks-btn");
+const loc1 = document.getElementById('location1');
+const loc2 = document.getElementById('location2');
+const loc3 = document.getElementById('location3');
+const loc4 = document.getElementById('location4');
+const loc5 = document.getElementById('location5');
+const loc6 = document.getElementById('location6');
 
 const numbers = /^[0-9]+$/;
 const data =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
@@ -61,13 +66,14 @@ function closeModal(){
 
 closeModalBtn.addEventListener("click", closeModal);
 
-//  close modal thanks 
-
+//  close modal thanks /////////////////////////////////
 
 function closeModalThanks() {
   modalThanks.style.display = "none"; 
 }
 closeModalThanksBtn.addEventListener("click", closeModal);
+// ////////////////////////////////////////////////////
+
 
 // TODO : Refactor ///////////////////////////////////////////////////////////////
 firstName.addEventListener('keyup' , validateFirstName);
@@ -77,6 +83,7 @@ birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
 // radioContainer.addEventListener('submit', );
+// locBox.addEventListener('submit', )
 
 
 function validateFirstName() {
@@ -170,7 +177,7 @@ form.addEventListener('submit', validate);
 function validate(e){
   e.preventDefault();
 
-  if(firstName.value && lastName.value && email.value && birthDate.value && checkBox.checked  === true){
+  if(firstName.value && lastName.value && email.value && birthDate.value && checkBox.checked &&  loc1.checked || loc2.checked || loc3.checked || loc4.checked || loc5.checked || loc6.checked === true){
     modalbg.style.display = "block";
     modalThanks.style.display= 'block';
     return true;
@@ -182,19 +189,3 @@ function validate(e){
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// Submit SHUT UP !!!!!!!!!
-// form.addEventListener('submit' , (e) => {
-//   e.preventDefault();
-  // validForm(this);
-// })
-
-
-// validate submit
-
-// firstName.addEventListener('first', () => {
-//   firstName.setCustomValidity("");
-//   firstName.checkValidity();
-// });
-
