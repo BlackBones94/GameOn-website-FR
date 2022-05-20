@@ -13,7 +13,7 @@
 <body>
 	<div class="topnav" id="myTopnav">
 		<div class="header-logo">
-			<img alt="logo" src="Logo.png" width="auto" height="auto" />
+			<img alt="logo" src="Logo.png" />
 		</div>
 		<div class="main-navbar">
       
@@ -28,7 +28,7 @@
 			</a>
 		</div>
 	</div>
-	</div>
+	
 	<main>
 		<div class="hero-section">
 			<div class="hero-content">
@@ -74,7 +74,7 @@
 						</div>
 						<div class="formData">
 							<label for="birthdate">Date de naissance</label><br>
-							<input class="text-control" type="date" id="birthdate" name="birthdate"  pattern="\d{2}-\d{2}-\d{4}" required oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')" onchange="this.setCustomValidity('')"/><br>
+							<input class="text-control" type="date" id="birthdate" name="birthdate"  required oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')" onchange="this.setCustomValidity('')"/><br>
 						</div>
 						<div class="formData">
 							<label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
@@ -125,7 +125,7 @@
 							</label>
 							<br>
 						</div>
-						<input class="btn-submit" type="submit" id="btn-submit" class="button" value="C'est parti" />
+						<input class="btn-submit" type="submit" id="btn-submit"  value="C'est parti" />
 					</form>
 					<div class="thanks modal-thanks" id="thanks">
 						<div class="thanks-message">
