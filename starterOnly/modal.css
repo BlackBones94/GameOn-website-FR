@@ -69,9 +69,7 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
+  .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
@@ -79,41 +77,27 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav {
-    position: relative;
-  }
-  .topnav .icon {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .topnav.responsive   {
-    float: none;
-    display: none;
-    text-align: left;
-  }
-
-  .topnav  a{
+  .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
-
-
-  
 }
 
 
 
  @media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-
+  .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    /* margin-top: 0px; */
+    /* margin-top: -15px; */
   }
 } 
 

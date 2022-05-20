@@ -1,7 +1,7 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += "responsive";
+    x.className += " responsive";
   } else {
     x.className = "topnav";
   }
@@ -82,8 +82,7 @@ email.addEventListener('keyup' , validateEmail);
 birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
-// radioContainer.addEventListener('submit', );
-// locBox.addEventListener('submit', )
+
 
 
 function validateFirstName() {
@@ -189,3 +188,5 @@ function validate(e){
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+
+
