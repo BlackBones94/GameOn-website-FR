@@ -72,10 +72,12 @@ function closeModalThanks() {
   modalThanks.style.display = "none"; 
 }
 closeModalThanksBtn.addEventListener("click", closeModal);
+
 // ////////////////////////////////////////////////////
 
 
-// TODO : Refactor ///////////////////////////////////////////////////////////////
+// TODO : Refactor 
+
 firstName.addEventListener('keyup' , validateFirstName);
 lastName.addEventListener('keyup' , validateLastName);
 email.addEventListener('keyup' , validateEmail);
@@ -83,7 +85,7 @@ birthDate.addEventListener('keyup', validateBirthdate);
 quantityTournament.addEventListener('keyup', validateTournament);
 checkBox.addEventListener('submit', validateCheckbox);
 
-
+// first name validation
 
 function validateFirstName() {
   if (firstName.value.length >= 2) {
@@ -93,6 +95,8 @@ function validateFirstName() {
   }
 }
 
+// last name validation
+
 function validateLastName() {
   if (lastName.value.length >= 2) {
     return true;
@@ -101,6 +105,8 @@ function validateLastName() {
   }
 }
 
+// email validation
+
 function validateEmail() {
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
     return true;
@@ -108,6 +114,8 @@ function validateEmail() {
     email.setCustomValidity(errorMessage.emailError);
   }
 }
+
+// birthdate validation 
 
 function validateBirthdate(){
   if(birthDate.value === null || birthDate.value === ""){
@@ -119,6 +127,7 @@ function validateBirthdate(){
   }
 }
 
+// Tournois validation
 
 function validateTournament() {
   if(quantityTournament.value === ''){
@@ -128,6 +137,7 @@ function validateTournament() {
   }
 }
 
+// checkbox validation
 
 function validateCheckbox(){
   if(checkBox.checked){
