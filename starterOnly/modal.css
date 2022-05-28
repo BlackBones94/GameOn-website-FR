@@ -580,3 +580,7 @@ position: relative;
 bottom: 50px;
 border: 0px solid #f00;
 } */
+input:focus {
+	outline: none;
+  	border: 1px solid red;
+}

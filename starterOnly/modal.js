@@ -28,8 +28,8 @@ const email = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
-var inputs = document.getElementsByTagName("input");
-
+// const inputs = document.getElementsByTagName("input");
+// const loc = document.getElementById("location1");
 // launch modal event
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -60,9 +60,10 @@ form.addEventListener('submit',  function (e) {
 
 let valid = false;
 
+
 // first name validation
 
-form.addEventListener('submit', validateFirstName);
+form.addEventListener('change', validateFirstName);
 firstName.addEventListener('keyup' , validateFirstName);
 
 let errorFirst = document.createElement("span");
@@ -85,7 +86,7 @@ function validateFirstName() {
 
 // last name validation
 
-form.addEventListener('submit', validateLastName);
+form.addEventListener('change', validateLastName);
 lastName.addEventListener('keyup' , validateLastName);
 
 let errorLast = document.createElement("span");
@@ -109,7 +110,7 @@ function validateLastName() {
 
 // email validation
 
-form.addEventListener('submit', validateEmail);
+form.addEventListener('change', validateEmail);
 email.addEventListener('keyup', validateEmail);
 
 let error = document.createElement("span");
@@ -134,7 +135,7 @@ function validateEmail() {
 
 // birthdate validation 
 
-form.addEventListener('submit', validateBirthdate);
+form.addEventListener('change', validateBirthdate);
 birthDate.addEventListener('keyup', validateBirthdate);
 
 
@@ -159,7 +160,7 @@ function validateBirthdate(){
 
 // Tournois validation
 
-form.addEventListener('submit', validateTournament);
+form.addEventListener('change', validateTournament);
 quantityTournament.addEventListener('change', validateTournament);
 
 let errorTournament = document.createElement("span");
@@ -176,14 +177,14 @@ function validateTournament() {
   }else{
     quantityTournament.parentNode.appendChild(errorTournament);
     errorTournament.textContent = "Veuillez saisir un chiffre.";
-    valid = true;
-    return true;
+    valid = false;
+    return false;
   }
 }
 
 // checkbox validation
 
-form.addEventListener('submit', validateCheckbox);
+form.addEventListener('change', validateCheckbox);
 checkBox.addEventListener('click', validateCheckbox);
 
 let errorBox = document.createElement("span");
@@ -204,8 +205,9 @@ function validateCheckbox(){
 }
 
 // Loc validation
+form.addEventListener('change', isValidLocation);
+// form.addEventListener('submit', isValidLocation);
 
-form.addEventListener('submit', isValidLocation);
 
 const btnRadio = document.querySelectorAll('input[type=radio]');
 let errorLoc = document.createElement("p");
@@ -213,7 +215,7 @@ errorLoc.style.color = "red";
 errorLoc.style.fontSize = "12px";
 
 function isValidLocation() {
-  for(let i =0; i < btnRadio.length; ){
+  for(let i = 0; i < btnRadio.length; ){
     if(btnRadio[i].checked){
       radioError.parentNode.removeChild(errorLoc);
       valid = true;
@@ -252,7 +254,3 @@ closeModalThanksBtn.addEventListener("click", thankYou);
 function thankYou() {
   form.submit();
 }
-
-
-
-
