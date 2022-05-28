@@ -48,19 +48,6 @@ function closeModal(){
 
 closeModalBtn.addEventListener("click", closeModal);
 
-//  close modal thanks 
-
-// function closeModalThanks() {
-//   modalThanks.style.display = "none"; 
-// }
-// closeModalThanksBtn.addEventListener("click", closeModal);
-
-
-
-// TODO : Refactor 
-
-
-
 
 // désactivation du submit défaut
 
