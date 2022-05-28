@@ -18,6 +18,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelector('.close');
 const submitBtn = document.querySelector(".btn-submit");
+const radioError = document.querySelector('.checkbox-label');
 
 // Form element const
 const form = document.getElementById("form");
@@ -27,17 +28,16 @@ const email = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
-const radioError = document.querySelector('.checkbox-label');
 var inputs = document.getElementsByTagName("input");
 
-
 // launch modal event
+
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
+
 function launchModal() {
   modalbg.style.display = "block";
-  // modalThanks.style.display= 'none';
 }
 
 // close modal form
@@ -49,7 +49,7 @@ function closeModal(){
 closeModalBtn.addEventListener("click", closeModal);
 
 
-// désactivation du submit défaut
+// désactivation du submit 
 
 form.addEventListener('submit',  function (e) {
   e.preventDefault();
@@ -65,19 +65,19 @@ let valid = false;
 form.addEventListener('submit', validateFirstName);
 firstName.addEventListener('keyup' , validateFirstName);
 
-let span = document.createElement("span");
-span.style.color = "red";
-span.style.fontSize = "12px";
+let errorFirst = document.createElement("span");
+errorFirst.style.color = "red";
+errorFirst.style.fontSize = "12px";
 
 function validateFirstName() {
   let firstInput = firstName.value;
   if (firstInput.length < 2 && firstInput !== null) {
-    firstName.parentNode.appendChild(span);
-    span.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+    firstName.parentNode.appendChild(errorFirst);
+    errorFirst.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
     valid = false;
     return false;
-  } else {
-    firstName.parentNode.removeChild(span);
+  }else{
+    firstName.parentNode.removeChild(errorFirst);
     valid = true;
     return true;
   }
@@ -88,19 +88,19 @@ function validateFirstName() {
 form.addEventListener('submit', validateLastName);
 lastName.addEventListener('keyup' , validateLastName);
 
-let span2 = document.createElement("span");
-span2.style.color = "red";
-span2.style.fontSize = "12px";
+let errorLast = document.createElement("span");
+errorLast.style.color = "red";
+errorLast.style.fontSize = "12px";
 
 function validateLastName() {
   let lastInput = lastName.value;
   if (lastInput.length < 2 &&  lastInput !== null) {
-    lastName.parentNode.appendChild(span2);
-    span2.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+    lastName.parentNode.appendChild(errorLast);
+    errorLast.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
     valid = false;
     return false;
-  } else {
-    lastName.parentNode.removeChild(span2);
+  }else{
+    lastName.parentNode.removeChild(errorLast);
     span2.style.textAlign = "center";
     valid = true; 
     return true;
@@ -108,6 +108,7 @@ function validateLastName() {
 }
 
 // email validation
+
 form.addEventListener('submit', validateEmail);
 email.addEventListener('keyup', validateEmail);
 
@@ -132,67 +133,71 @@ function validateEmail() {
 }
 
 // birthdate validation 
+
 form.addEventListener('submit', validateBirthdate);
-birthDate.addEventListener('change', validateBirthdate);
+birthDate.addEventListener('keyup', validateBirthdate);
+
 
 let dateRegex = /^\d{4}-\d\d-\d\d$/;
-let span5 = document.createElement("span");
-
+let errorBirthdate = document.createElement("span");
+errorBirthdate.style.color = "red";
+errorBirthdate.style.fontSize = "12px";
 
 function validateBirthdate(){
-  if(dateRegex.exec(birthDate.value)) {
-    birthDate.parentNode.removeChild(span5);
-    valid = true;
-    return true;
-  }else{
-    birthDate.parentNode.appendChild(span5);
-    span5.innerText = "Vous devez rentrer votre date de naissance.";
-    span5.style.color = "red";
-    span5.style.fontSize = "12px";
+  if(!(dateRegex.exec(birthDate.value))) {
+    birthDate.parentNode.appendChild(errorBirthdate);
+    errorBirthdate.innerText = "Vous devez rentrer votre date de naissance."; 
     valid = false;
     return false;
+  }else{
+    birthDate.parentNode.removeChild(errorBirthdate);
+    valid = true;
+    return true;
+    
   }
 }
 
 // Tournois validation
+
 form.addEventListener('submit', validateTournament);
 quantityTournament.addEventListener('change', validateTournament);
 
-let span3 = document.createElement("span");
-span3.style.color = "red";
-span3.style.fontSize = "12px";
+let errorTournament = document.createElement("span");
+errorTournament.style.color = "red";
+errorTournament.style.fontSize = "12px";
 
 let regexQuantity = /\b([0-9]|[1-9][0-9])\b/;
 
 function validateTournament() {
   if(regexQuantity.test(quantityTournament.value)){
-    quantityTournament.parentNode.removeChild(span3); 
+    quantityTournament.parentNode.removeChild(errorTournament); 
     valid = true;
     return true;
   }else{
-    quantityTournament.parentNode.appendChild(span3);
-    span3.textContent = "Veuillez saisir un chiffre.";
+    quantityTournament.parentNode.appendChild(errorTournament);
+    errorTournament.textContent = "Veuillez saisir un chiffre.";
     valid = true;
     return true;
   }
 }
 
 // checkbox validation
+
 form.addEventListener('submit', validateCheckbox);
 checkBox.addEventListener('click', validateCheckbox);
 
-let span4 = document.createElement("span");
-span4.style.color = "red";
-span4.style.fontSize = "12px";
+let errorBox = document.createElement("span");
+errorBox.style.color = "red";
+errorBox.style.fontSize = "12px";
 
 function validateCheckbox(){
   if(checkBox.checked === true){
-    checkBox.parentNode.removeChild(span4);
+    checkBox.parentNode.removeChild(errorBox);
     valid = true;
     return true;
   }else{
-    checkBox.parentNode.appendChild(span4);
-    span4.textContent = "Vous devez vérifier que vous acceptez les termes et conditions.";
+    checkBox.parentNode.appendChild(errorBox);
+    errorBox.textContent = "Vous devez vérifier que vous acceptez les termes et conditions.";
     valid = false;
     return false;
   }
@@ -201,28 +206,27 @@ function validateCheckbox(){
 // Loc validation
 
 form.addEventListener('submit', isValidLocation);
-form.addEventListener('change', isValidLocation);
 
 const btnRadio = document.querySelectorAll('input[type=radio]');
-let p2 = document.createElement("p");
-p2.style.color = "red";
-p2.style.fontSize = "12px";
+let errorLoc = document.createElement("p");
+errorLoc.style.color = "red";
+errorLoc.style.fontSize = "12px";
 
 function isValidLocation() {
   for(let i =0; i < btnRadio.length; ){
     if(btnRadio[i].checked){
-      radioError.parentNode.removeChild(p2);
+      radioError.parentNode.removeChild(errorLoc);
       valid = true;
     }else{
       i++;
-      radioError.parentNode.appendChild(p2);
-      p2.innerText = "Veuillez cocher une ville.";
+      radioError.parentNode.appendChild(errorLoc);
+      errorLoc.innerText = "Veuillez cocher une ville.";
       valid = false;
     }
   }
 };
 
-
+// validation formulaire 
 
 form.addEventListener("submit", valide);
 function valide() {
@@ -232,7 +236,7 @@ function valide() {
     const body = document.querySelector(".modal-body");
     body.style.display = "none";
     return true;
-  } else {
+  }else{
     valid = false;
     alert("Merci de compléter les cases manquantes");
   }
@@ -240,7 +244,7 @@ function valide() {
 
 
 
-// FUNCTION RESETFORM////////////////////////////////////////////////////////////////////////
+// FUNCTION RESETFORM
 
 const closeModalThanksBtn = document.querySelector(".close-thanks-btn");
 
@@ -249,6 +253,6 @@ function thankYou() {
   form.submit();
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
