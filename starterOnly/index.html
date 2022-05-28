@@ -56,55 +56,55 @@
 			<div class="content">
 				<span class="close"></span>
 				<div class="modal-body">
-					<form id="form" action="index.html" method="GET" onsubmit="return validate();" >
+					<form id="form" action="index.html" method="get" onsubmit="return validate();" >
 						<div class="formData">
 							<label for="first">Prénom</label><br>
-							<input class="text-control" type="text" id="first" name="first" required  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du Prénom.')" onchange="this.setCustomValidity('')" minlength="2"/> 
+							<input class="text-control" type="text" id="first" name="first"   > 
 							<br>
 						</div>
 						<div class="formData">
 							<label for="last">Nom</label><br>
-							<input class="text-control" type="text" id="last" name="last" required  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du Nom.')" onchange="this.setCustomValidity('')" minlength="2"/>
+							<input class="text-control" type="text" id="last" name="last" >
 							<br>
 						</div>
 						<div class="formData">
 							<label for="email">E-mail</label><br>
-							<input class="text-control" type="email" id="email" name="email" required oninvalid="this.setCustomValidity('Veuillez entrer une adresse mail Valide.')" onchange="this.setCustomValidity('')" />
+							<input class="text-control" type="email" id="email" name="email"  >
 							<br>
 						</div>
 						<div class="formData">
 							<label for="birthdate">Date de naissance</label><br>
-							<input class="text-control" type="date" id="birthdate" name="birthdate"  required oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')" onchange="this.setCustomValidity('')"/><br>
+							<input class="text-control" type="date" id="birthdate" name="birthdate" ><br>
 						</div>
 						<div class="formData">
 							<label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-							<input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required oninvalid="this.setCustomValidity('Veuillez indiquer un nombre de tournois.')" onchange="this.setCustomValidity('')" >
+							<input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" >
 						</div>
 						<p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
 						<div class="formData" id="radio"  >
-							<input type="radio" id="location1" name="location" 
+							<input class="checkbox-input" type="radio" id="location1" name="location" 
 								value="New York"/>
-							<label class="checkbox-label" for="location1"> 
+							<label class="checkbox-label" class="checkbox-label" for="location1"> 
 								<span class="checkbox-icon"></span>
 								New York</label>
-							<input type="radio" id="location2" name="location" 
+							<input class="checkbox-input" type="radio" id="location2" name="location" 
 								value="San Francisco" />
-							<label class="checkbox-label" for="location2">
+							<label class="checkbox-label" class="checkbox-label" for="location2">
 								<span class="checkbox-icon"></span>
 								San Francisco</label>
-							<input type="radio" id="location3" name="location" value="Seattle" />
+							<input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
 							<label class="checkbox-label" for="location3">
 								<span class="checkbox-icon"></span>
 								Seattle</label>
-							<input type="radio" id="location4" name="location" value="Chicago"/>
+							<input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago"/>
 							<label class="checkbox-label" for="location4">
 								<span class="checkbox-icon"></span>
 								Chicago</label>
-							<input type="radio" id="location5" name="location" value="Boston" />
+							<input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" />
 							<label class="checkbox-label" for="location5">
 								<span class="checkbox-icon"></span>
 								Boston</label>
-							<input type="radio" id="location6" name="location"
+							<input class="checkbox-input" type="radio" id="location6" name="location"
 								value="Portland"/>
 							<label class="checkbox-label" for="location6">
 								<span class="checkbox-icon"></span>
@@ -112,13 +112,13 @@
 						</div>
 
 						<div class="formData">
-							<input type="checkbox" id="checkbox1" name="checkbox1" required oninvalid="this.setCustomValidity('Vous devez vérifier que vous acceptez les termes et conditions.')" onchange="this.setCustomValidity('')"/>
+							<input class="checkbox-input" type="checkbox" id="checkbox1" name="checkbox1" />
 							<label class="checkbox2-label" for="checkbox1">
 								<span class="checkbox-icon"></span>
 								J'ai lu et accepté les conditions d'utilisation.
 							</label>
 							<br>
-							<input type="checkbox" id="checkbox2" />
+							<input class="checkbox-input" type="checkbox" id="checkbox2" />
 							<label class="checkbox2-label" for="checkbox2">
 								<span class="checkbox-icon"></span>
 								Je souhaite être prévenu des prochains évènements.
@@ -127,11 +127,11 @@
 						</div>
 						<input class="btn-submit" type="submit" id="btn-submit"  value="C'est parti" />
 					</form>
-					<div class="thanks modal-thanks" id="thanks">
-						<div class="thanks-message">
-						  <p>Merci pour votre enregistrement</p>
-						  <button  class="button close-thanks-btn" onclick="resetForm();">Fermer</button>
-						</div>
+				</div>
+				<div class="thanks modal-thanks" id="thanks">
+					<div class="thanks-message">
+					  <p>Merci pour votre enregistrement</p>
+					  <button  class="button close-thanks-btn" >Fermer</button>
 					</div>
 				</div>
 			</div>
