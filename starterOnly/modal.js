@@ -28,8 +28,7 @@ const email = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
 const quantityTournament = document.getElementById("quantity");
 const checkBox = document.getElementById('checkbox1');
-// const inputs = document.getElementsByTagName("input");
-// const loc = document.getElementById("location1");
+
 // launch modal event
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -102,7 +101,7 @@ function validateLastName() {
     return false;
   }else{
     lastName.parentNode.removeChild(errorLast);
-    span2.style.textAlign = "center";
+    errorLast.style.textAlign = "center";
     valid = true; 
     return true;
   }
@@ -154,7 +153,6 @@ function validateBirthdate(){
     birthDate.parentNode.removeChild(errorBirthdate);
     valid = true;
     return true;
-    
   }
 }
 
@@ -244,8 +242,42 @@ function valide() {
   }
 }
 
+// const inputs = document.querySelector('input');
 
 
+function validateInput() {
+  if(valid === true) {
+    firstName.style.cssText = "border : 1px solid white";
+  }else{
+    firstName.style.cssText = "border : 1px solid red";
+  }
+}
+
+
+function validateInputDeux() {
+  if(valid === true) {
+    lastName.style.cssText = "border : 1px solid white";
+  }else{
+    lastName.style.cssText = "border : 1px solid red";
+  }
+}
+
+function validateInputMail() {
+  if(valid === true) {
+    email.style.cssText = "border : 1px solid white";
+  }else{
+    email.style.cssText = "border : 1px solid red";
+  }
+}
+
+
+function validateInputBirthdate() {
+  if( valid === true) {
+    birthDate.style.cssText = "border : 1px solid white";
+  }else{
+    birthDate.style.cssText = "border : 1px solid red";
+  }
+}
 // FUNCTION RESETFORM
 
 const closeModalThanksBtn = document.querySelector(".close-thanks-btn");
