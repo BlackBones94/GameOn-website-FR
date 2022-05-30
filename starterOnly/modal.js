@@ -157,7 +157,7 @@ function validateBirthdate(){
 
 // Tournois validation
 
-form.addEventListener('change', validateTournament);
+form.addEventListener('submit', validateTournament);
 quantityTournament.addEventListener('change', validateTournament);
 
 let errorTournament = document.createElement("span");
@@ -181,7 +181,7 @@ function validateTournament() {
 
 // checkbox validation
 
-form.addEventListener('change', validateCheckbox);
+form.addEventListener('submit', validateCheckbox);
 checkBox.addEventListener('click', validateCheckbox);
 
 let errorBox = document.createElement("span");
