@@ -114,11 +114,10 @@ email.addEventListener('keyup', validateEmail);
 
 let error = document.createElement("span");
 let errorMail = email.parentNode.appendChild(error);
+let regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 function validateEmail() {
   let mail = email.value;
-  let regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
   if(regexMail.exec(mail) == null) {
     errorMail.textContent = "Veuillez renseigner une adresse mail valide.";
     errorMail.style.color = "red";
@@ -259,23 +258,34 @@ function validateInputDeux() {
     lastName.style.cssText = "border : 1px solid white";
   }else{
     lastName.style.cssText = "border : 1px solid red";
+  
   }
 }
 
-function validateInputMail() {
-  if(valid === true) {
-    email.style.cssText = "border : 1px solid white";
-  }else{
-    email.style.cssText = "border : 1px solid red";
-  }
-}
+// function validateInputMail() {
+//   if(email.value == true) {
+//     email.style.cssText = "border : 1px solid white";
+//   }else{
+//     email.style.cssText = "border : 1px solid red";
+
+//   }
+// }
 
 
-function validateInputBirthdate() {
-  if( valid === true) {
-    birthDate.style.cssText = "border : 1px solid white";
+// function validateInputBirthdate() {
+//   if( (dateRegex.exec(birthDate.value)) === true) {
+//     birthDate.style.cssText = "border : 1px solid white";
+//   }else{
+//     birthDate.style.cssText = "border : 1px solid red";
+//   }
+// }
+
+
+function validateInputQuantity() {
+  if( regexQuantity.test(quantityTournament.value) === true) {
+    quantityTournament.style.cssText = "border : 1px solid white";
   }else{
-    birthDate.style.cssText = "border : 1px solid red";
+    quantityTournament.style.cssText = "border : 1px solid red";
   }
 }
 // FUNCTION RESETFORM
