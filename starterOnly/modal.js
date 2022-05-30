@@ -262,23 +262,24 @@ function validateInputDeux() {
   }
 }
 
-// function validateInputMail() {
-//   if(email.value == true) {
-//     email.style.cssText = "border : 1px solid white";
-//   }else{
-//     email.style.cssText = "border : 1px solid red";
+function validateInputMail() {
+  if(regexMail.exec(email.value) == null ) {
+    email.style.cssText = "border : 1px solid red";
 
-//   }
-// }
+  }else{
+    email.style.cssText = "border : 1px solid white";
+
+  }
+}
 
 
-// function validateInputBirthdate() {
-//   if( (dateRegex.exec(birthDate.value)) === true) {
-//     birthDate.style.cssText = "border : 1px solid white";
-//   }else{
-//     birthDate.style.cssText = "border : 1px solid red";
-//   }
-// }
+function validateInputBirthdate() {
+  if( (dateRegex.exec(birthDate.value)) == null) {
+    birthDate.style.cssText = "border : 1px solid red";
+  }else{
+    birthDate.style.cssText = "border : 1px solid white";
+  }
+}
 
 
 function validateInputQuantity() {
