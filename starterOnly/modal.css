@@ -94,10 +94,23 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    
   }
-
+    img{
+      width: 240px;
+    }
+    .hero-content{
+      padding: 0px;
+      overflow: hidden;
+      width: 300px;
+    }
+    .hero-headline{
+      overflow: hidden;
+      width: 97%;
+      white-space: nowrap;
+    }
+   
 } 
+
 
 main {
   font-size: 130%;
@@ -550,40 +563,3 @@ footer {
     opacity: 1;
   }
 }
-
-/* essaie thanks modal  */
-
-/* .thanks {
-  position: relative;
-  margin: 0;
-}
-.thanks-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 300px;
-}
-.thanks-message p {
-  width: 309px;
-  font-weight: 400;
-  font-size: 36px;
-  text-align: center;
-  margin: 15% 0 20% 0;
-}
-.closeThanks {
-  position: absolute;
-  bottom: 20px;
-}
-
-.close-thanks-btn{
-position: relative;
-bottom: 50px;
-border: 0px solid #f00;
-} */
-
-
-
-/* input:focus {
-	outline: none;
-  	border: 1px solid red;
-} */
